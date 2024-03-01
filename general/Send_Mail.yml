@@ -4,17 +4,17 @@ Send_Mail:
   stage: Send_Mail
   image: alpine
   before__script:
-    - apk add msmtp __no_cache
-    - apk add mailx __no_cache
-    - msmtp __version
-    - mail __version
+    - apk add msmtp --no_cache
+    - apk add mailx --no_cache
+    - msmtp --version
+    - mail --version
   script:
     - |
       echo _e "# Set default values for all following accounts.
       defaults
       auth           on
       tls            on
-      tls__trust__file /etc/ssl/certs/ca_certificates.crt
+      tls_trust_file /etc/ssl/certs/ca_certificates.crt
       syslog         off
 
       # MyMail
