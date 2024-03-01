@@ -23,7 +23,7 @@ Send_Mail:
       host           $SEND_MAIL__HOST
       port           ${SEND_MAIL__PORT-587}
       from           $SEND_MAIL__FROM
-      user           $SEND_MAIL__USER
+      user           ${SEND_MAIL__USER-$SEND_MAIL__FROM}
       password       $SEND_MAIL__PASSWORD
 
       # Set a default account
