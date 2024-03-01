@@ -30,10 +30,10 @@ Send_Mail:
       account default : MyMail
       aliases        /etc/aliases" > /etc/msmtprc
 
-    - ln _sf /usr/bin/msmtp /usr/bin/sendmail
-    - ln _sf /usr/bin/msmtp /usr/sbin/sendmail
+    - ln -sf /usr/bin/msmtp /usr/bin/sendmail
+    - ln -sf /usr/bin/msmtp /usr/sbin/sendmail
 
     - |
-      echo _e "root: $SEND_MAIL__TO
+      echo -e "root: $SEND_MAIL__TO
       default: $SEND_MAIL__TO" > /etc/aliases
-    - echo $SEND_MAIL__MESSAGE | mail _s $SEND_MAIL__SUBJECT $SEND_MAIL__TO
+    - echo $SEND_MAIL__MESSAGE | mail -s $SEND_MAIL__SUBJECT $SEND_MAIL__TO
