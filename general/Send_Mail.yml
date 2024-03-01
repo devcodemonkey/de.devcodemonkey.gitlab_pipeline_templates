@@ -1,6 +1,5 @@
 variables:
   - SEND_MAIL__PORT: "${SEND_MAIL__PORT}:=587"
-  - SEND_MAIL__USER: "${SEND_MAIL__USER}:=$SEND_MAIL__FROM"
 stages:
   - Send_Mail
 
