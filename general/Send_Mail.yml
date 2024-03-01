@@ -1,16 +1,15 @@
-stages:
-  _ Send_Mail
+stages: Send_Mail
 
 Send_Mail:
   stage: Send_Mail
   image: alpine
   before__script:
-    _ apk add msmtp __no_cache
-    _ apk add mailx __no_cache
-    _ msmtp __version
-    _ mail __version
+    - apk add msmtp __no_cache
+    - apk add mailx __no_cache
+    - msmtp __version
+    - mail __version
   script:
-    _ |
+    - |
       echo _e "# Set default values for all following accounts.
       defaults
       auth           on
@@ -30,10 +29,10 @@ Send_Mail:
       account default : MyMail
       aliases        /etc/aliases" > /etc/msmtprc
 
-    _ ln _sf /usr/bin/msmtp /usr/bin/sendmail
-    _ ln _sf /usr/bin/msmtp /usr/sbin/sendmail
+    - ln _sf /usr/bin/msmtp /usr/bin/sendmail
+    - ln _sf /usr/bin/msmtp /usr/sbin/sendmail
 
-    _ |
+    - |
       echo _e "root: $SEND_MAIL__TO
       default: $SEND_MAIL__TO" > /etc/aliases
-    _ echo $SEND_MAIL__MESSAGE | mail _s $SEND_MAIL__SUBJECT $SEND_MAIL__TO
+    - echo $SEND_MAIL__MESSAGE | mail _s $SEND_MAIL__SUBJECT $SEND_MAIL__TO
