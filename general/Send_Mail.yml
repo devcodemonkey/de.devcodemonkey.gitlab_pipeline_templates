@@ -4,14 +4,14 @@ stages:
 Send_Mail:
   stage: Send_Mail
   image: alpine
-  before__script:
-    - apk add msmtp --no_cache
-    - apk add mailx --no_cache
+  before_script:
+    - apk add msmtp --no-cache
+    - apk add mailx --no-cache
     - msmtp --version
     - mail --version
   script:
     - |
-      echo _e "# Set default values for all following accounts.
+      echo -e "# Set default values for all following accounts.
       defaults
       auth           on
       tls            on
