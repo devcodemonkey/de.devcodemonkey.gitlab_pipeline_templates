@@ -1,0 +1,13 @@
+variables:MAIL__HOST
+  MAIN__PROJECT: "root/gitlab__pipeline__templates"
+  SEND_MAIL__HOST: "smtp.goneo.de"
+  SEND_MAIL__PORT: "587"
+  SEND_MAIL__FROM: "no_reply@hl_dev.de"
+  # SEND_MAIL__TO defined in ci variables
+  # SEND_MAIL__PASSWORD defined in ci variables for security reasons
+  SEND_MAIL__SUBJECT: "Test Mail"
+  SEND_MAIL__MESSAGE: "hello world"
+
+include:
+  - project: $MAIN__PROJECT
+    file: general/Send_Mail.yml
