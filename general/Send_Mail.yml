@@ -21,7 +21,7 @@ Send_Mail:
       # MyMail
       account        MyMail
       host           $SEND_MAIL__HOST
-      port           ${${SEND_MAIL__PORT}:=587}
+      port           ${SEND_MAIL__PORT-587}
       from           $SEND_MAIL__FROM
       user           $SEND_MAIL__USER
       password       $SEND_MAIL__PASSWORD
