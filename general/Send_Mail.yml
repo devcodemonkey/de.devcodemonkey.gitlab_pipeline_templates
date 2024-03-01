@@ -1,3 +1,5 @@
+variables: SEND_MAIL__PORT
+
 stages:
   - Send_Mail
 
