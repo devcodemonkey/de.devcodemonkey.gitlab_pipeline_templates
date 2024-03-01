@@ -36,4 +36,4 @@ Send_Mail:
     - |
       echo -e "root: $SEND_MAIL__TO
       default: $SEND_MAIL__TO" > /etc/aliases
-    - echo $SEND_MAIL__MESSAGE | mail -s $SEND_MAIL__SUBJECT $SEND_MAIL__TO
+    - echo $SEND_MAIL__MESSAGE | mail -s "$SEND_MAIL__SUBJECT" $SEND_MAIL__TO
