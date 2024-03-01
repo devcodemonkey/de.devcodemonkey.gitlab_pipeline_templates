@@ -1,0 +1,39 @@
+stages:
+  - Send-Mail
+
+Send-Mail:
+  stage: Send-Mail
+  image: alpine
+  before_script:
+    - apk add msmtp --no-cache
+    - apk add mailx --no-cache
+    - msmtp --version
+    - mail --version
+  script:
+    - |
+      echo -e "# Set default values for all following accounts.
+      defaults
+      auth           on
+      tls            on
+      tls_trust_file /etc/ssl/certs/ca-certificates.crt
+      syslog         off
+
+      # MyMail
+      account        MyMail
+      host           $SEND-MAIL_HOST
+      port           $SEND-MAIL_PORT
+      from           $SEND-MAIL_FROM
+      user           $SEND-MAIL_FROM
+      password       $SEND-MAIL_PASSWORD
+
+      # Set a default account
+      account default : MyMail
+      aliases        /etc/aliases" > /etc/msmtprc
+
+    - ln -sf /usr/bin/msmtp /usr/bin/sendmail
+    - ln -sf /usr/bin/msmtp /usr/sbin/sendmail
+
+    - |
+      echo -e "root: $SEND-MAIL_TO
+      default: $SEND-MAIL_TO" > /etc/aliases
+    - echo $SEND-MAIL_MESSAGE | mail -s $SEND-MAIL_SUBJECT $SEND-MAIL_TO
