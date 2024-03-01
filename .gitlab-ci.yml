@@ -9,7 +9,7 @@ variables:
   SEND_MAIL__MESSAGE: "hello world"
 
 include:
-  - project: "$MAIN__PROJECT"
+  - project: "root/gitlab_pipeline_templates"
     ref: main
     file: general/Send_Mail.yml
 
