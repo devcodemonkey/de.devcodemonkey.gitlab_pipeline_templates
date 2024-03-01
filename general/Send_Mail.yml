@@ -1,3 +1,6 @@
+variables:
+  - SEND_MAIL__PORT: "587"
+  - SEND_MAIL__USER: $SEND_MAIL__FROM
 stages:
   - Send_Mail
 
@@ -23,7 +26,7 @@ Send_Mail:
       host           $SEND_MAIL__HOST
       port           $SEND_MAIL__PORT
       from           $SEND_MAIL__FROM
-      user           $SEND_MAIL__FROM
+      user           $SEND_MAIL__USER
       password       $SEND_MAIL__PASSWORD
 
       # Set a default account
