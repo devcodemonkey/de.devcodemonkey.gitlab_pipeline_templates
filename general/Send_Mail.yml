@@ -8,7 +8,7 @@ Send_Mail:
     - apk add msmtp --no-cache
     - apk add mailx --no-cache
     - msmtp --version
-    - mail --version
+    # - mail --version #commented because can't get version
   script:
     - |
       echo -e "# Set default values for all following accounts.
