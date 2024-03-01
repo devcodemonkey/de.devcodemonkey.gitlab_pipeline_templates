@@ -1,13 +1,9 @@
-variables: SEND_MAIL__PORT
-
 stages:
   - Send_Mail
 
 Send_Mail:
   stage: Send_Mail
   image: alpine
-  variables:
-    - SEND_MAIL__PORT: "${SEND_MAIL__PORT}:=587"
   before_script:
     - apk add msmtp --no-cache
     - apk add mailx --no-cache
@@ -25,7 +21,7 @@ Send_Mail:
       # MyMail
       account        MyMail
       host           $SEND_MAIL__HOST
-      port           $SEND_MAIL__PORT
+      port           ${${SEND_MAIL__PORT}:=587}
       from           $SEND_MAIL__FROM
       user           $SEND_MAIL__USER
       password       $SEND_MAIL__PASSWORD
