@@ -1,5 +1,5 @@
-variables:MAIL__HOST
-  MAIN__PROJECT: "root/gitlab__pipeline__templates"
+variables:
+  MAIN__PROJECT: "root/gitlab_pipeline_templates"
   SEND_MAIL__HOST: "smtp.goneo.de"
   SEND_MAIL__PORT: "587"
   SEND_MAIL__FROM: "no_reply@hl_dev.de"
@@ -9,5 +9,7 @@ variables:MAIL__HOST
   SEND_MAIL__MESSAGE: "hello world"
 
 include:
-  - project: $MAIN__PROJECT
+  - project: "$MAIN__PROJECT"
+    ref: main
     file: general/Send_Mail.yml
+
