@@ -1,5 +1,5 @@
 variables:
-  - SEND_MAIL__PORT: "${SEND_MAIL__PORT}:=587"
+  - SEND_MAIL__PORT: "587"
 stages:
   - Send_Mail
 
