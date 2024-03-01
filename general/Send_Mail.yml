@@ -1,4 +1,5 @@
-stages: Send_Mail
+stages:
+  - Send_Mail
 
 Send_Mail:
   stage: Send_Mail
