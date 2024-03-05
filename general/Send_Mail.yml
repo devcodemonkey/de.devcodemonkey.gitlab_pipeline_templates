@@ -39,7 +39,7 @@ Send_Mail:
     - echo $SEND_MAIL__MESSAGE | mail -s "$SEND_MAIL__SUBJECT" "$SEND_MAIL__TO"
     - |
       cat <<'EOF'
-                __,__
+                 __,__
         .--.  .-"     "-.  .--.
       / .. \/  .-. .-.  \/ .. \
       | |  '|  /   Y   \  |'  | |
@@ -49,7 +49,7 @@ Send_Mail:
             |  \._   _./  |
             \   \ `~` /   /
             '._ '-=-' _.'
-                '~---~'
+               '~---~'
         |------------------|
         | devcodemonkey.de |
         |------------------|
