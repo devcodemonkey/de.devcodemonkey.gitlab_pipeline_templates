@@ -38,7 +38,7 @@ Send_Mail:
       default: $SEND_MAIL__TO" > /etc/aliases
     - echo $SEND_MAIL__MESSAGE | mail -s "$SEND_MAIL__SUBJECT" "$SEND_MAIL__TO"
     - | 
-    cat <<'EOF'
+      cat <<'EOF'
            __,__
   .--.  .-"     "-.  .--.
  / .. \/  .-. .-.  \/ .. \
