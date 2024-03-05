@@ -11,5 +11,4 @@ variables:
 
 include:
   - project: "root/gitlab_pipeline_templates"
-    ref: main
     file: general/Send_Mail.yml
