@@ -9,7 +9,7 @@ Deploy_Ftp:
   before_script:
     - apk add --no-cache lftp
   script:
-    - lftp -c "set ftp:ssl-allow no; open -u DEPLOY_FTP__FTP_USERNAME,$DEPLOY_FTP__FTP_PASSWORD $DEPLOY_FTP__FTP_SERVER; mirror -Rev ./build/ ./"
+    - lftp -c "set ftp:ssl-allow no; open -u $DEPLOY_FTP__FTP_USERNAME,$DEPLOY_FTP__FTP_PASSWORD $DEPLOY_FTP__FTP_SERVER; mirror -Rev ./build/ ./"
     - |
       cat <<'EOF'
                  __,__
