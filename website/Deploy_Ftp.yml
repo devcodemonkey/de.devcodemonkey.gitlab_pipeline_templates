@@ -9,3 +9,20 @@ stage: Deploy_Ftp
     - apk add --no-cache lftp
   script:
     - lftp -c "set ftp:ssl-allow no; open -u DEPLOY_FTP__FTP_USERNAME,$DEPLOY_FTP__FTP_PASSWORD $DEPLOY_FTP__FTP_SERVER; mirror -Rev ./build/ ./"
+    - |
+      cat <<'EOF'
+                 __,__
+        .--.  .-"     "-.  .--.
+      / .. \/  .-. .-.  \/ .. \
+      | |  '|  /   Y   \  |'  | |
+      | \   \  \ 0 | 0 /  /   / |
+      \ '- ,\.-"""""""-./, -' /
+        `'-' /_   ^ ^   _\ '-'`
+            |  \._   _./  |
+            \   \ `~` /   /
+            '._ '-=-' _.'
+               '~---~'
+        |------------------|
+        | devcodemonkey.de |
+        |------------------|
+      EOF
